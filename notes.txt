@@ -1,0 +1,134 @@
+
+<!-- On submit
+String form data onto JADCASH url and open it
+(url.com?variable=value&vriable=value). Eliminate form altogether and
+simply create URL to send. Collect names and date from our end(client side)
+and send only the jad required info. Calculate price server side and attach to
+url. Names and date collected client side will be saved to our database if
+success message is returned.
+
+$url = https://jad.cash/handlers/webpay.aspx?
+paymentID=$paymentID&
+subTotalAmount=$subTotalAmount&
+discountAmount=$discountAmount&
+tipAmount=$tipAmount&
+itemCode=$itemCode&
+itemName=$itemName&
+custom=$custom
+
+let the custom return string be a customer ID created from a unique ID using
+ timestamp and customer name. On submit, store customer info to a temporary
+ database with the id. If the custom return string comes back, take the info
+ matching the ID from the temporary databasse and add it to a payment succesful
+ database. So there are two databases: 1 for potential customers, 1 for paid
+ customers
+
+Create three big divs: 1 for transportaion and tour of south east peninsular; 1 for water park only; 1 for both tour and water park. when clicked the price will be updated in the js file. $15 for transportation only per person. $20 for water park only. $30 for transportation and park. each div should have a descriptive pic.  -->
+
+
+**********************************************************************************************************************************************************************EDIT BOOKING**************************************************************************************************************************************************************************************
+
+stick comodo logo right hand (DONE)
+put existing div and new div in same container and row to improve transition (DONE)
+
+Enter Splash ID (DONE)
+If it exists, show the date and number of guests and Name registered. if not, echo message saying invalid SPlash ID.(DONE)
+
+Allow change in date and no of guests only. (DONE)
+
+If no of guests > existing number, popup message saying you are changing the number of guests and it would cost $XXX extra. Ask for confirmation in popup. If yes, keep changed value. If no, revert to original value fron the database. When next step is clicked, redirect to jad.
+
+if no of guests < existing number,popup message saying you are changing the number of guests and you would be refunded $xxxxx. Ask for confirmation in popup. If yes, keep changed value. If no, revert to original value fron the database. When next step is clicked, send email saying refunded will be processed. include new booking details in email. Also send email to shanda indicating refund needs to be made. Update ooking details in database.
+
+if date is changed, popup message indicatin date will be changed from X to Y. Ask for confirmation in popup. If yes, keep changed date. If no, revert to date from the database. When next step is clicked, change date in database. Send email with details of booking.
+
+Create 3 containers (DONE)
+	1. two buttons. New or existing booking. On click, slide down and up the forms for booking or editing (DONE)
+	2. new booking form (DONE)
+	3. existing booking form (DONE)
+
+
+
+	<form class='hidden-div'>
+            <div class='container-fluid'>
+              <div class='row'>
+                    <div class='col-sm-6 form-group'>
+                        <label for='fname'> First Name:</label>
+                        <input type='text' class='form-control required' id='fname' required name='fname' maxlength='50'>
+                    </div>
+                    <div class='col-sm-6 form-group'>
+                        <label for='lname'> Last Name:</label>
+                        <input type='text' class='form-control required' id='lname' required name='lname' maxlength='50'>
+                    </div>
+                    <div class='col-sm-3 form-group'>
+                  <label for='noOfGuests'> No. of Guests:</label>
+                  <input type='number' required onchange='priceCalc() 'class='form-control required'
+                    id='noOfGuests' name='noOfGuests' min='1' max='55' />
+              </div>
+              <div class='col-sm-3 form-group'>
+                  <label for='totalPrice'>Total Price</label>
+                  <p class='form-control' id='totalPrice' name='totalPrice'></p>
+              </div>
+              <div class='col-sm-6 form-group'>
+                  <label for='selectedDateToEdit'> Date:</label>
+                  <input type='text' class='form-control required' id='selectedDateToEdit' data-large-default='true' data-large-mode='true' data-lock='from' data-max-year='<?php echo @date('Y') + 1;?>' data-min-year='<?php echo @date('Y');?>' required name='selectedDateToEdit' />
+                  <!-- init dateDropper -->
+                  <script>
+                  $('#selectedDateToEdit').dateDropper();
+                  </script>
+
+              </div>
+              </div>
+            <div class='col-sm-12 form-group'>
+                      <input name='submit' type='submit' class='btn btn-lg btn-block' id='submit' value='NEXT STEP'>
+                  </div>
+           
+            </div>   
+              
+          </form>    "
+
+
+
+          *****************************************8
+
+          $subject = "Splash Ventures Booking";
+
+	$receipt = "<p class='thanks'>Thank you for choosing Splash Ventures for your fun in the sun.</p>
+		    	<img class='success-icon' src='./resources/images/icons/payment-success.png'/>
+		    	<p class='thanks'>Here are the details of your appointment.</p>
+		    	<div class='a'>
+				   	<div><img class='success-icon' src='./resources/images/icons/icons8-event-48.png'/></div>
+				   	<span id=''>" . $row['selectedDate']. "</span>
+				</div>
+		    	
+		    	<div class='a'>
+		    			<div><img class='success-icon' src='./resources/images/icons/id-icon.jpg'/></div>
+		   				<span id='table_name'>" . $row['fname'] . " " .  $row['lname'] . "</span>
+		   		</div>
+		   		<div class='a'>
+		    			<div><img class='success-icon' src='./resources/images/icons/People_icon.svg'/></div>
+						<span>" . " " . $row['noOfGuests']. " " . "guests</span>
+		    	</div>
+		    	<div class='a'>
+		    			<div><img class='success-icon' src='./resources/images/icons/dollar-flat/64x64.png'/></div>
+						<span>" . $row['total'] . "</span>
+				</div>";
+
+	$message = "
+	<html>
+	<head>
+	<title>Splash Ventures Booking</title>
+	</head>
+	<body>" . $receipt . 
+
+	"</body>
+	</html>
+	";
+
+	// Always set content-type when sending HTML email
+	$headers = "MIME-Version: 1.0" . "\r\n";
+	$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+	mail($to,$subject,$message,$headers,"-f info@splashventureskn.com");
+
+******************************************************

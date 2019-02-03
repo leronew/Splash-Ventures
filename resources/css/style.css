@@ -1,0 +1,599 @@
+/*FONTS*/
+
+@font-face {
+  font-family: 'Tusj';
+  src: url('../fonts/FFF-Tusj/FFF_Tusj.ttf');
+}
+
+@font-face {
+  font-family: 'Water';
+  src: url('../fonts/water.ttf');
+}
+
+@font-face {
+  font-family: 'Pacifico';
+  src: url('../fonts/pacifico/Pacifico.ttf');
+}
+
+@font-face {
+  font-family: 'Flood_Toon';
+  src: url('../fonts/darrell-flood_toon-cats/Toon Cats.ttf');
+}
+
+@font-face {
+  font-family: 'Emulogic';
+  src: url('../fonts/freaky-fonts_emulogic/emulogic.ttf');
+}
+
+@font-face {
+  font-family: 'Beauty_and_the_beast';
+  src: url('../fonts/beauty_and_the_beast/Beauty and the Beast Sample.ttf');
+}
+
+
+
+/*END FONTS*/
+
+/*GENERAL STYLING*/
+
+html, body{
+    height: 100%; /*of the screen size*/
+}
+
+#wrapper{
+    /*height is set in index.js*/
+}
+
+#main{
+    overflow: auto;
+    padding-left: 5rem;
+    /*height is set in index.js*/
+}
+
+.brush-stroke-banner-2-9{
+  background: url('../images/colorful-watercolor-brush-stroke-banner-2-9.png');
+  background-repeat: repeat;
+  background-size: 100% 95%;
+  padding: 8px 0;
+}
+
+.brush-stroke-banner-21{
+  background: url('../images/colorful-watercolor-brush-stroke-banner-21.png');
+  background-repeat: repeat;
+  background-size: 100% 95%;
+  padding: 8px 0;
+}
+
+ .thin-paint-brush-stroke{
+    background: url('../images/thin-paint-brush-stroke.png');
+    background-repeat: repeat;
+    background-size: 100% 95%;
+    text-align: center;
+    padding: 3rem;
+    height: auto;
+    max-width: 30rem;
+    text-transform: uppercase;
+    margin: auto;
+  }
+
+@media screen and (max-width: 768px){
+  .main{
+    padding-left: 0;
+  }
+}
+
+/*END GENERAL STYLING*/
+
+/*HEADER*/
+
+header{
+  width: 100%;
+  z-index: 100;
+  height: auto;
+  opacity: 0.9;
+}
+
+.contact{
+  width: 2rem;
+  margin: 1rem 0.5rem 0 0.5rem;
+}
+
+.telephone, .email{
+  color: #fff;
+  font-weight: 600;
+}
+
+.social{
+  margin: auto 1rem;
+  width: 4rem;
+}
+
+.all-tabs{
+  display: flex;
+  background-color: #3383FF;
+  height: 6rem;
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+.all-tabs div{
+  margin: auto;
+}
+
+.all-tabs a{
+  font-family: 'Pacifico';
+  letter-spacing: 3px;
+  text-align: center;
+    display: inline-table;
+    padding: 1rem;
+    margin: 0.5rem;
+    width: 12rem;
+    background-color: #85cfef;
+    color: #fff;
+    /* Float */
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+}
+
+.all-tabs a:hover, .all-tabs a:focus, .all-tabs a:active {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+    background-color: #3eff4a;
+    text-decoration: none;
+    padding: 1rem;
+    background-color: #85cfef;
+}
+
+.icon-bar{
+  background-color: #000;
+}
+
+/*  .button{
+    position: absolute;
+    top: -18rem;
+    z-index: 2;
+    border: 3px solid #77aaff;
+  }*/
+
+#splash_logo{
+  display: flex;
+  margin: 0 auto 2rem auto;
+}
+
+@media screen and (max-width: 768px){
+  #splash_logo{
+    height: 10rem !important;
+    min-width:50%;
+    max-width: 80%;
+  }
+
+  .all-tabs{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .all-tabs a{
+    width: 100%;
+  }
+}
+
+/*END HEADER STYLING*/
+
+/*FOOTER*/
+
+footer{
+    height: 6rem;
+    /*margin-top: 6rem;*/
+    border-top: 2px solid #fa0;
+    color: #000;
+    padding-top: 1rem;
+    position: relative;
+    clear: both;
+    font-weight: 600;
+    font-size: 2rem;
+    text-align: center;
+    background-image: url('../images/sand.jpg');
+}
+
+/*END FOOTER STYLING*/
+
+
+/*CONTACTS BAR*/
+
+
+.contacts-bar{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 200;
+  top: 25rem;
+  width: 4rem;
+  border: 3px solid #ffe;
+  background-color: #fff;
+}
+
+@media screen and (max-width: 768px){
+  .contacts-bar{
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 2rem;
+    position: relative;
+    height: 6rem;
+    width: 100%;
+    top: 0;
+    background-color: #3383FF;
+  }
+}
+
+/*END CONTACTS BAR STYLING*/
+
+/*HOME PAGE */
+
+#billboard{
+    display: block;
+    margin: auto;
+    height: 100%;
+}
+
+.tear{ /* Copied from http://enjoycss.com/15BK/code/ */
+  -webkit-box-sizing: content-box;
+  -ms-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-border-radius: 80% 0 55% 50% / 55% 0 80% 50%;
+  -ms-border-radius: 80% 0 55% 50% / 55% 0 80% 50%;
+  -moz-border-radius: 80% 0 55% 50% / 55% 0 80% 50%;
+  border-radius:45% 20%; /*not tear. change the others acrroding to final liking*/
+  /*-o-text-overflow: clip;
+  text-overflow: clip;
+  -ms-transform: rotateY(-50deg);  IE 9
+  -webkit-transform: rotate(-50deg);  Safari 3-8 */
+}
+
+@media screen and (max-width: 768px){
+  #splash_logo{
+    margin-top: 9rem;
+    min-width:50%;
+    max-width: 80%;
+  }
+}
+
+@media screen and (min-width:992px){
+
+}
+
+/*END HOME PAGE STYLING*/
+
+/*ABOUT PAGE*/
+
+.about-section{
+    background-color: #68ACF2;
+    color: #fff;
+    font-size: 1.5rem; 
+}
+
+.description{
+  line-height: 2;
+  text-align: justify;
+  margin-right: 4rem;
+}
+
+#location{
+    margin: 0 5rem;
+}
+
+.time{
+  font-size: 2rem;
+}
+
+.check{
+    margin-right: 2rem;
+}
+
+.imgs{
+  min-width: 100%;
+  height: 100%;
+}
+
+.about-container .col-md-6{
+    height: 100%;
+}
+
+.about-container-1{
+    display: flex;
+    min-height: 50rem;
+}
+
+.about-container-2{
+    display: flex;
+    min-height: 45rem;
+}
+
+.about-container-1 h3, .about-container-2 h3{
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+#adults{
+    height: 3rem;
+    width: 6rem;
+    margin-bottom: 2rem;
+}
+
+.prices select{
+    color: black;
+}
+
+.prices select{
+    margin-left: 2rem;
+}
+
+@media screen and (max-width: 768px){
+    .about-container-1, .about-container-2{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .about-container-1 h3, .about-container-2 h3{
+        margin-bottom: 4rem;
+        margin-top: 4rem;
+    }
+    
+    #location{
+        margin: 10rem 0 0 0;
+    }
+}
+
+/*END ABOUT PAGE STYLING*/
+
+/*CONTACT PAGE */
+
+.contact-box{
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  }
+
+  .contact-box a{
+    margin-top: 1rem;
+  }
+
+  #telephone, #email{
+    color: #000;
+    font-weight: 600;
+  }
+
+  #email{
+    margin-bottom: 3rem;
+  }
+
+#btnContactUs{
+    font-size: 2rem;
+    background-color: #3383FF;
+  }
+
+iframe{
+  width: 100%;
+  height: 50rem;
+}
+
+#arrow{
+  margin: 1rem;
+  width: 3rem;
+}
+
+#trampoline{
+  height: 25rem;
+  width: 60%;
+}
+
+/*END CONTACT PAGE STYLING*/
+
+
+/*FAQS*/
+
+#faqs_img{
+  height: 20rem;
+}
+
+.faqs-wrapper{
+  background-color: #85cfef;
+  padding: 1rem;
+  margin: auto;
+}
+
+.question {
+    padding: 1rem;
+    margin: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: azure;
+}
+
+.answer {
+    display: none;
+    background-color: darkorange;
+    padding: 1rem;
+    margin: 1rem;
+    font-size: 1.5rem;
+    font-family: Verdana;
+    color: #fff;
+}
+
+.fa{
+    margin-right: 2rem;
+    font-size: 3rem;
+}
+
+@media screen and (max-width: 768px){
+  #faqs_img{
+    width: 100%;
+  }
+}
+
+/*END FAQS STYLING*/
+
+/******************************************
+**********START BOOK PAGE STYLING**********
+******************************************/
+.book-page{
+
+}
+
+.required{
+  background-color: aquamarine !important;
+}
+
+.book-page .container-fluid{
+  /*margin-left: 5rem;*/
+}
+
+#fake-comodo{
+  display: none;
+}
+
+#submit, #newBooking, #editBooking{
+  background-color: #3383FF;
+}
+
+.hidden-div{
+  display: none;
+}
+
+@media screen and (max-width: 768px){
+  .book-page .container-fluid{
+  margin-left: 0;
+  }
+}
+
+/******************************************
+***********END BOOK PAGE STYLING***********
+******************************************/
+
+/******************************************
+***********SUCCESS PAGE STYLING***********
+******************************************/
+
+.success-page, .cancel-page{
+  display: flex;
+  margin: 0 5rem;
+  align-items: center;
+  flex-direction: column;
+  border: 5px solid #3383FF;
+  border-radius: 10%;
+  /*
+  color: #fff;
+  background-image: url("../images/waterpark.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;*/
+}
+
+.thanks{
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.success-icon{
+  height: 64px;
+  width: 64px;
+}
+
+.a{
+display: flex;
+}
+
+.a span{
+  height: 64px;
+  font-size: 3rem;
+  padding: 1.7rem 0;
+  display: block;
+  margin: auto;
+}
+
+@media screen and (max-width: 768px){
+  .success-page{
+    margin: 0;
+    padding-top: 2rem;
+}
+
+.thanks{
+  font-size: 1.5rem;
+}
+}
+
+/******************************************
+**********END SUCCESS PAGE STYLING*********
+******************************************/
+
+
+/*********************************************
+****************TOURS OPTIONS*****************
+**********************************************/
+
+.tours-container{
+  min-height: 100%;
+}
+
+.tours{
+  border: 1px solid green;
+  border-radius: 10%;
+  height: 50%;
+  color: #fff;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.tours:hover{
+  cursor: pointer;
+  border: 10px solid green;
+}
+
+.waterpark-only{
+  background-image: url("../images/waterpark.jpg");
+  background-size: cover;
+}
+
+.ride-only{
+  background-image: url("../images/south-east.jpg");
+  background-size: cover;
+}
+
+.options-div{
+  min-height: 100%;
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.waterpark-and-tour{
+  background-image: url("../images/frigatebay.jpg");
+  background-size: cover;
+}
+
+/*********************************************
+*************TOURS OPTIONS END****************
+**********************************************/
+
+.ap{
+  height: 10rem;
+  border: 1px solid red;
+  border-radius: 10%;
+  background-color: blue;
+  font-size: 1.5rem;
+}
+
+.cancel{
+
+}

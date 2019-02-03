@@ -1,0 +1,9 @@
+.microbial{
+  background:
+linear-gradient(135deg, #BCEFDC 25%, transparent 25%) -50px 0,
+linear-gradient(225deg, #BCEFDC 25%, transparent 25%) -50px 0,
+linear-gradient(315deg, #BCEFDC 25%, transparent 25%),
+linear-gradient(45deg, #BCEFDC 25%, transparent 25%);
+background-size: 100px 100px;
+background-color: #BC173A;
+}
