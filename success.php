@@ -1,13 +1,13 @@
 <?php
 	
-// if(isset($_SERVER["HTTP_REFERER"]) & ($_GET['paymentID'] === '1c55c245-47f7-40b3-b140-9442cd169faf')) {  uncomment when using with jad.
+if(isset($_SERVER["HTTP_REFERER"]) & ($_GET['paymentID'] === '1c55c245-47f7-40b3-b140-9442cd169faf')) {  //uncomment when using with jad.
 
-    if(isset($_SERVER["HTTP_REFERER"]) & (strpos($_SERVER["HTTP_REFERER"], "book.php"))) { //comment when using with jad
+    // if(isset($_SERVER["HTTP_REFERER"]) & (strpos($_SERVER["HTTP_REFERER"], "book.php"))) { //comment when using with jad
        	session_start();
     	include_once './header.php';
 	    include_once './php-includes/dbConnection.php';
 
-		// $trans_id = $_GET['txnID']; uncomment when using with jad
+		$trans_id = $_GET['txnID']; //uncomment when using with jad
 	    $splash_id = $_GET['custom'];//get custom string returned in the url from JAD. Custom string is the $splash_id created in sumit-to-jad.php. If it returns here, it means the pay was succesful on Jad's end
 
 	    $row;
@@ -21,7 +21,7 @@
 		  		$row = mysqli_fetch_assoc($results);
 
 			  	$sqlCopy = "INSERT INTO paidguests " . $sqlSelect;
-		  		// $sqlAddTransactionID = "UPDATE paidguests SET trans_id = '$trans_id' WHERE splash_id = '$splash_id'"; uncomment when using with jad
+		  		$sqlAddTransactionID = "UPDATE paidguests SET trans_id = '$trans_id' WHERE splash_id = '$splash_id'"; //uncomment when using with jad
 				$sqlDelete = "DELETE FROM unpaidguests WHERE splash_id = '$splash_id'";
 
 

@@ -132,3 +132,8 @@ Create 3 containers (DONE)
 	mail($to,$subject,$message,$headers,"-f info@splashventureskn.com");
 
 ******************************************************
+
+if extra pament is made via jad to uddate the bookinh:
+	1. add extra cash to updating table in the database. This table should have the fields to match those on the update page. all fieds should be updated.
+	2. when url returns to success.php read updating table using splash id. extract all info and update the row in the paidguest table. Then delete the row from the updating table. 
+	3. if payment is unsuccesful, do nothing.

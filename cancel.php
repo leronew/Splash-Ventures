@@ -2,7 +2,8 @@
     
 	
 
-    if(isset($_SERVER['HTTP_REFERER']) & (strpos($_SERVER['HTTP_REFERER'], "jad.cash"))) {
+    // if(isset($_SERVER['HTTP_REFERER']) & (strpos($_SERVER['HTTP_REFERER'], "jad.cash"))) {
+	if(isset($_SERVER["HTTP_REFERER"]) & ($_GET['paymentID'] === '1c55c245-47f7-40b3-b140-9442cd169faf')) { 
     	session_start();
     	include_once './header.php';
 	    include_once './php-includes/dbConnection.php';

@@ -28,11 +28,11 @@
 
       // uncomment the url below and remove brackets when ready to use with jad
 
-      // (((($url = 'https://jad.cash/handlers/webpay.aspx?paymentID=FBC95BCA-685A-4C44-A9DD-B94355249B3B&subTotalAmount=$newTotalPrice&discountAmount=0&tipAmount=0&itemCode=SVCB1DP&itemName=1_Day_Pass&custom=$splash_id';))))
+      $url = 'https://jad.cash/handlers/webpay.aspx?paymentID=FBC95BCA-685A-4C44-A9DD-B94355249B3B&subTotalAmount=$newTotalPrice&discountAmount=0&tipAmount=0&itemCode=SVCB1DP&itemName=1_Day_Pass&custom=$splash_id';
   
       // comment the url below when ready to use with jad
 
-      $url = "../success.php?paymentId=" . urlencode($paymentID) . "&custom=". urlencode($splash_id); 
+      // $url = "../success.php?paymentId=" . urlencode($paymentID) . "&custom=". urlencode($splash_id); 
       header("Location: $url");
       exit();
 
