@@ -26,6 +26,12 @@
       mysqli_query($conn, $sqlCommand);
       $conn->close();
 
+      // uncomment the url below and remove brackets when ready to use with jad
+
+      // (((($url = 'https://jad.cash/handlers/webpay.aspx?paymentID=FBC95BCA-685A-4C44-A9DD-B94355249B3B&subTotalAmount=$newTotalPrice&discountAmount=0&tipAmount=0&itemCode=SVCB1DP&itemName=1_Day_Pass&custom=$splash_id';))))
+  
+      // comment the url below when ready to use with jad
+
       $url = "../success.php?paymentId=" . urlencode($paymentID) . "&custom=". urlencode($splash_id); 
       header("Location: $url");
       exit();
@@ -40,13 +46,18 @@
         $sqlSelect = "SELECT * FROM paidguests WHERE splash_id = '$splash_id'";
         $results = mysqli_query($conn, $sqlSelect);
         $resultCheck = mysqli_num_rows($results);
-        $row = mysqli_fetch_assoc($results);  
+        $row = mysqli_fetch_assoc($results); 
+        $user_id = $row['user_id']; 
 
         $newFName = mysqli_real_escape_string($conn, strtoupper(trim($_POST["fname"])));
         $newLNname = mysqli_real_escape_string($conn, strtoupper(trim($_POST["lname"])));
         $newNoOfGuests = mysqli_real_escape_string($conn, $_POST["noOfGuests"]);
         $newSelectedDate = mysqli_real_escape_string($conn, $_POST["selectedDateToEdit"]);
         $newTotalPrice = $newNoOfGuests * 20;
+
+        $sqlAddToUpdateTable = "INSERT INTO updatetable(user_id, lname, fname, total, noOfGuests, selectedDate, splash_id) VALUES ('$user_id', $newFName','$newLName','$newTotalPrice','$newNoOfGuests','newSelectedDate','$splash_id')";
+
+        mysqli_query($conn, $sqlAddToUpdateTable); 
 
         $sqlUpdateCommand = "UPDATE paidguests SET fname = '$newFName', lname = '$newLNname', noOfGuests = '$newNoOfGuests', selectedDate = '$newSelectedDate', total = '$newTotalPrice' WHERE splash_id = '$splash_id'";
 
