@@ -10,3 +10,13 @@ CREATE TABLE paidguests (
     country varchar(256) not null,
     splash_id varchar(256) not null
 );
+
+CREATE TABLE updatetable(
+    user_id int(100) not null PRIMARY KEY,
+    fname varchar(256) not null,
+    lname varchar(256) not null,
+    total int(100) not null,
+    noOfGuests int(100) not null,
+    selectedDate varchar(256) not null,
+    splash_id varchar(256) not null
+);
